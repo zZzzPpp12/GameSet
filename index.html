@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>边线足球 · TOUCHLINE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="边线足球首页"><span class="brand-icon">↗</span><span>TOUCHLINE<small>边线足球 / CLASSIC FOOTBALL</small></span></a>
+      <div class="edition"><span class="live-dot"></span> 本地单机 <span class="edition-sep">/</span> PROTOTYPE 01</div>
+      <button id="sound" class="icon-button" aria-label="开启声音" title="开关声音">声音 OFF</button>
+    </header>
+
+    <section class="match-header" aria-label="比赛信息">
+      <div class="match-title"><span class="eyebrow">EXHIBITION MATCH</span><h1>一场纯粹的足球。</h1><p>找回传切之间，那一下恰到好处的手感。</p></div>
+      <div class="scoreboard"><span class="team-label home">翡翠联 <i></i></span><div class="score"><span id="home-score">0</span><b>:</b><span id="away-score">0</span><small id="clock">00:00</small></div><span class="team-label away"><i></i> 珊瑚竞技</span></div>
+      <div class="match-meta"><span>5 v 5</span><small>3 分钟一场 · 向右进攻 →</small></div>
+    </section>
+
+    <div class="game-layout">
+      <section class="stadium" aria-label="足球比赛">
+        <div class="stadium-top"><span><i></i> THE TRAINING GROUND</span><span id="phase">准备开球</span></div>
+        <div class="canvas-wrap" id="canvas-wrap">
+          <canvas id="pitch" width="1280" height="820" tabindex="0" aria-label="足球游戏球场，使用方向键移动，J 传球，K 射门，L 直塞，空格切换球员"></canvas>
+          <div id="banner" class="event-banner" aria-live="polite"></div>
+          <div id="overlay" class="overlay">
+            <div class="intro-card">
+              <div class="intro-mark">↗</div><span class="eyebrow" id="overlay-tag">THE BEAUTIFUL GAME, SIMPLIFIED.</span>
+              <h2 id="overlay-title">上场，就现在。</h2><p id="overlay-copy">短传渗透，直塞身后，蓄力破门。<br>你控制翡翠联，攻向右侧球门。</p>
+              <div class="difficulty-row" id="difficulty-row"><label for="difficulty">对手强度</label><select id="difficulty"><option value="normal">标准 · 有来有回</option><option value="easy">休闲 · 慢慢找手感</option></select></div>
+              <button id="start" class="primary-button">开始比赛 <span>↗</span></button>
+              <small class="intro-foot" id="intro-foot">方向键移动 &nbsp; / &nbsp; J 传球 &nbsp; / &nbsp; 按住 K 蓄力射门</small>
+            </div>
+          </div>
+          <div class="charge" id="charge"><span>SHOT POWER</span><div><i id="charge-fill"></i></div></div>
+        </div>
+        <div class="stadium-bottom"><span><i class="selected-symbol">▼</i> <span id="player-name">08 · LIN</span><span class="stamina"><i id="stamina-fill"></i></span></span><span id="hint">方向键 / WASD 移动</span><span class="stadium-actions"><button id="pause" title="暂停 / Esc">暂停 <kbd>ESC</kbd></button><button id="fullscreen" title="全屏">全屏 ⛶</button></span></div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel control-panel"><div class="panel-heading"><h2>掌控比赛</h2><span>CONTROLS</span></div><div class="movement"><div class="arrow-keys"><kbd>↑</kbd><div><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div></div><p>移动 / 调整方向<small>也支持 W A S D</small></p></div><dl class="controls"><div><dt><kbd>J</kbd></dt><dd>短传 / 防守抢断</dd></div><div><dt><kbd>K</kbd></dt><dd>射门<small>按住蓄力，松开踢出</small></dd></div><div><dt><kbd>L</kbd></dt><dd>直塞<small>传向队友前方</small></dd></div><div><dt><kbd>SPACE</kbd></dt><dd>切换球员</dd></div><div><dt><kbd>SHIFT</kbd></dt><dd>加速冲刺</dd></div></dl><div class="tip"><span>教练小贴士</span><p>传球前朝向队友。斜向跑动拉开空当，靠近禁区后松开 K 完成射门。</p></div></section>
+        <section class="panel radar-panel"><div class="panel-heading"><h2>场上局势</h2><span>LIVE MAP</span></div><canvas id="radar" width="300" height="185" aria-label="球员位置小地图"></canvas><div class="map-legend"><span><i class="mint"></i> 翡翠联</span><span><i class="coral"></i> 珊瑚竞技</span><span><i class="white"></i> 足球</span></div></section>
+        <section class="note"><span>01 / BACK TO BASICS</span><p>没有抽卡，没有养成。<br>只有你、队友，和下一脚传球。</p></section>
+      </aside>
+    </div>
+    <footer><span>TOUCHLINE <b>©</b> 2026 <em>独立足球玩法原型</em></span><button id="restart">重新开赛 ↺</button><span>原生 Canvas · 离线可玩</span></footer>
+  </main>
+  <script src="engine.js"></script><script src="game.js"></script>
+</body>
+</html>
